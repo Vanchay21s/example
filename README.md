@@ -1,6 +1,6 @@
 ## Create project for back-end
 
-## 🚀 Step 1: Project Setup
+## 📁 Step 1: Project Setup
 ### 1. Create project folder
 ```
 mkdir project-name // create new folder
@@ -13,7 +13,7 @@ Run exactly what you showed:
 1, npm install express cors dotenv express-async-handler express-validator multer
 2, npm install --save-dev nodemon body-parser pg
 ```
-## <span style="color:#9b59b6">📁 Step 2: Project Structure
+## 🗂️ Step 2: Project Structure
 Create a clean folder structure:
 ```
 project-name/
