@@ -197,10 +197,22 @@ const validate = (req, res, next) => {
   }
 };
 
+// upload
+const storage = multer.diskStorage({
+    destination: "./uploads/",
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname +"-"+ Date.now() + path.extname(file.originalname))
+    }
+})
+const upload = multer({
+    storage: storage
+})
+
 module.exports = {
   logger,
   errHandle,
   validate,
+  upload
 };
 ```
 ## 📦 Step 7: Create a Simple Model
