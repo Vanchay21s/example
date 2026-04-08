@@ -37,7 +37,7 @@ project-name/
 ├── index.js
 └── package.json
 ```
-## 🔑🗄️ Step 3: Environment Variables and PostgreSQL Connection
+## 🔐 Step 3: Environment Variables and PostgreSQL Connection
 ```
 .env
 ```
@@ -66,7 +66,7 @@ const pool = new Pool({
 });
 module.exports = pool;
 ```
-## ⚙️ Step 4: Create Table DB
+## 🧱 Step 4: Create Table DB
 ```config/db.js```
 ```
 const pool = require("../config/db.js");
@@ -130,7 +130,7 @@ const scriptDB = async () => {
 module.exports = scriptDB;
 
 ```
-## ⚙️ Step 5: Basic Express Server
+## 🚀 Step 5: Basic Express Server
 ```
 index.js
 ```
@@ -166,7 +166,7 @@ app.listen(process.env.PORT, () => {
   console.log(`✅ API === http://localhost:${process.env.PORT}/api`);
 });
 ```
-## 📦 Step 6: Middleware
+## 🔄 Step 6: Middleware
 ```
 middleware/index.js
 ```
@@ -217,7 +217,7 @@ module.exports = {
   upload
 };
 ```
-## 📦 Step 7: Create a Simple Model
+## 🧩 Step 7: Create a Simple Model
 ```
 models/projectModel.js
 ```
@@ -236,7 +236,7 @@ const workModel = {
 }
 module.exports = workModel
 ```
-## 🎯 Step 8: Services
+## ⚙️ Step 8: Services
 ```service/workService.js```
 ```
 const pool = require("../config/db")
@@ -280,7 +280,7 @@ const workService = {
 
 module.exports = workService
 ```
-## 🎯 Step 9: Controller
+## 🎮 Step 9: Controller
 ```
 controllers/projectController.js
 ```
@@ -300,7 +300,7 @@ const addWork = expressAsyncHandler(async(req, res) => {
 module.exports = { addWork}
 ```
 
-## 🔗 Step 10: Routes
+## 🌐 Step 10: Routes
 ```
 routes/projectRoutes.js
 ```
