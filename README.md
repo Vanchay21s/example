@@ -172,6 +172,8 @@ middleware/index.js
 ```
 ```
 const { validationResult } = require("express-validator");
+const multer = require("multer");
+const path = require("path")
 
 const logger = (req, res, next) => {
   console.log(`${req.method} ${req.url}`);
@@ -305,7 +307,7 @@ routes/projectRoutes.js
 ```
 const express = require("express")
 const { addWork } = require("../controllers/workCon")
-const upload = require("../middleware/upload")
+const upload = require("../middleware/index")
 
 const workRouter = express.Router()
 
