@@ -253,10 +253,13 @@ const workService = {
                     by_work
                 ])
             }
+            await client.query("COMMIT")
+            return work.rows
         } catch (err) {
-            
+            await client.query("ROLLBACK")
+            throw err
         } finally {
-            
+            client.release()
         }
     }
 }
