@@ -42,7 +42,7 @@ project-name/
 ```
 ## 🔐 Step 3: Environment Variables and PostgreSQL Connection
 ```.env```
-```
+```javascript
 PORT=5000
 
 POSTGRES_USER=vanchay
@@ -52,7 +52,7 @@ POSTGRES_DB=portfolio
 POSTGRES_PORT=5432
 ```
 ```config/db.js```
-```
+```javascript
 const { Pool } = require("pg");
 require("dotenv").config();
 
@@ -67,7 +67,7 @@ module.exports = pool;
 ```
 🐳 create db in docker for example_project:
 ```docker```
-```
+```javascript
 step 1: docker pull postgres:15
 step 2: docker run -d \
           --name postgres \
@@ -80,7 +80,7 @@ step 2: docker run -d \
 ```
 ## 🧱 Step 4: Create Table DB
 ```config/db.js```
-```
+```javascript
 const pool = require("../config/db.js");
 
 const scriptDB = async () => {
@@ -144,7 +144,7 @@ module.exports = scriptDB;
 ```
 ## 🚀 Step 5: Basic Express Server
 ```index.js```
-```
+```javascript
 const express = require("express");
 const pool = require("./src/config/db");
 const cors = require("cors");
@@ -178,7 +178,7 @@ app.listen(process.env.PORT, () => {
 ```
 ## 🔄 Step 6: Middleware
 ```middleware/index.js```
-```
+```javascript
 const { validationResult } = require("express-validator");
 const multer = require("multer");
 const path = require("path")
@@ -227,7 +227,7 @@ module.exports = {
 ```
 ## 🧩 Step 7: Models
 ```models/projectModel.js```
-```
+```javascript
 const pool = require("../config/db");
 
 const workModel = { 
@@ -244,7 +244,7 @@ module.exports = workModel
 ```
 ## ⚙️ Step 8: Services
 ```service/workService.js```
-```
+```javascript
 const pool = require("../config/db")
 const workModel = require("../model/workModel")
 
@@ -288,7 +288,7 @@ module.exports = workService
 ```
 ## 🎮 Step 9: Controllers
 ```controllers/projectController.js```
-```
+```javascript
 const expressAsyncHandler = require("express-async-handler");
 const workService = require("../services/workService");
 
@@ -306,7 +306,7 @@ module.exports = { addWork}
 
 ## 🌐 Step 10: Routes
 ```routes/projectRoutes.js```
-```
+```javascript
 const express = require("express")
 const { addWork } = require("../controllers/workCon")
 const upload = require("../middleware/index")
