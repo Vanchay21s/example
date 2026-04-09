@@ -47,8 +47,8 @@ PORT=5000
 
 POSTGRES_USER=vanchay
 POSTGRES_PASSWORD=123
-POSTGRES_HOST=postgres
-POSTGRES_DB=portpolio
+POSTGRES_HOST=postgres // it's should be postgres or localhost
+POSTGRES_DB=portfolio
 POSTGRES_PORT=5432
 ```
 ```config/db.js```
@@ -57,13 +57,26 @@ const { Pool } = require("pg");
 require("dotenv").config();
 
 const pool = new Pool({
-  host: process.env.POSTGRES_HOST,
-  port: process.env.POSTGRES_PORT,
   user: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
+  password: String(process.env.POSTGRES_PASSWORD),
+  host: process.env.POSTGRES_HOST,
   database: process.env.POSTGRES_DB,
+  port: Number(process.env.POSTGRES_PORT),
 });
 module.exports = pool;
+```
+🐳 create db in docker for example_project:
+```docker```
+```
+step 1: docker pull postgres:15
+step 2: docker run -d \
+          --name postgres \
+          -e POSTGRES_USER=vanchay \
+          -e POSTGRES_PASSWORD=123 \
+          -e POSTGRES_DB=portfolio \
+          -p 5432:5432 \
+          -v pgdata:/var/lib/postgresql/data \
+          postgres:15
 ```
 ## 🧱 Step 4: Create Table DB
 ```config/db.js```
