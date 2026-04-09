@@ -22,13 +22,16 @@ project-name/
 │   └── db.js
 │
 ├── controllers/
-│   └── projectController.js
+│   └── workController.js
 │
 ├── routes/
-│   └── projectRoutes.js
+│   └── workRoutes.js
 │
 ├── models/
-│   └── projectModel.js
+│   └── workModel.js
+│
+├── services/
+│   └── workService.js
 │
 ├── middleware/
 │   └── uploadMiddleware.js
@@ -38,9 +41,7 @@ project-name/
 └── package.json
 ```
 ## 🔐 Step 3: Environment Variables and PostgreSQL Connection
-```
-.env
-```
+```.env```
 ```
 PORT=5000
 
@@ -50,9 +51,7 @@ POSTGRES_HOST=postgres
 POSTGRES_DB=portpolio
 POSTGRES_PORT=5432
 ```
-```
-config/db.js
-```
+```config/db.js```
 ```
 const { Pool } = require("pg");
 require("dotenv").config();
@@ -131,9 +130,7 @@ module.exports = scriptDB;
 
 ```
 ## 🚀 Step 5: Basic Express Server
-```
-index.js
-```
+```index.js```
 ```
 const express = require("express");
 const pool = require("./src/config/db");
@@ -167,9 +164,7 @@ app.listen(process.env.PORT, () => {
 });
 ```
 ## 🔄 Step 6: Middleware
-```
-middleware/index.js
-```
+```middleware/index.js```
 ```
 const { validationResult } = require("express-validator");
 const multer = require("multer");
@@ -217,10 +212,8 @@ module.exports = {
   upload
 };
 ```
-## 🧩 Step 7: Create a Simple Model
-```
-models/projectModel.js
-```
+## 🧩 Step 7: Models
+```models/projectModel.js```
 ```
 const pool = require("../config/db");
 
@@ -280,10 +273,8 @@ const workService = {
 
 module.exports = workService
 ```
-## 🎮 Step 9: Controller
-```
-controllers/projectController.js
-```
+## 🎮 Step 9: Controllers
+```controllers/projectController.js```
 ```
 const expressAsyncHandler = require("express-async-handler");
 const workService = require("../services/workService");
@@ -301,9 +292,7 @@ module.exports = { addWork}
 ```
 
 ## 🌐 Step 10: Routes
-```
-routes/projectRoutes.js
-```
+```routes/projectRoutes.js```
 ```
 const express = require("express")
 const { addWork } = require("../controllers/workCon")
@@ -319,9 +308,7 @@ workRouter.post(
 module.exports = workRouter
 ```
 ## 🔌 Step 11: Connect Routes to App
-```
-index.js:
-```
+```index.js:```
 ```
 const profileRouter = require('./routes/projectRoutes');
 
