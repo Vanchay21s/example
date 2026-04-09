@@ -323,9 +323,9 @@ module.exports = workRouter
 ## 🔌 Step 11: Connect Routes to App
 ```index.js:```
 ```javascript
-const profileRouter = require('./routes/projectRoutes');
+const workRouter = require("./src/routes/workRoutes");
 
-app.use('/api', profileRouter)
+app.use('/api', workRoutes)
 ```
 
 
